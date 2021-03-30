@@ -532,7 +532,7 @@ static const char *ipi_types[NR_IPI] __tracepoint_string = {
 	[IPI_COMPLETION]	= "completion interrupts",
 };
 
-static void smp_cross_call(const struct cpumask *target, unsigned int ipinr);
+void smp_cross_call(const struct cpumask *target, unsigned int ipinr);
 
 void show_ipi_list(struct seq_file *p, int prec)
 {
@@ -695,7 +695,7 @@ static irqreturn_t ipi_handler(int irq, void *data)
 	return IRQ_HANDLED;
 }
 
-static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
 {
 	trace_ipi_raise_rcuidle(target, ipi_types[ipinr]);
 	__ipi_send_mask(ipi_desc[ipinr], target);

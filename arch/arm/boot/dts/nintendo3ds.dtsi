@@ -371,29 +371,11 @@
 		clock-output-names = "3ds:refclk134mhz";
 	};
 
-	sdclk: refclk67mhz {
-		compatible = "fixed-factor-clock";
-		clocks = <&refclk>;
-		#clock-cells = <0>;
-		clock-div = <2>;
-		clock-mult = <1>;
-		clock-output-names = "3ds:refclk67mhz";
-	};
-
-	cpuclk: refclk268mhz {
-		compatible = "fixed-factor-clock";
-		clocks = <&refclk>;
-		#clock-cells = <0>;
-		clock-div = <1>;
-		clock-mult = <2>;
-		clock-output-names = "3ds:refclk268mhz";
-	};
-
-	irclk: xtal18mhz {
+	irclk: xtal1_8mhz {
 		compatible = "fixed-clock";
 		#clock-cells = <0>;
-		clock-frequency = <18432000>;
-		clock-output-names = "3ds:xtal18mhz";
+		clock-frequency = <1843200>;
+		clock-output-names = "3ds:xtal1_8mhz";
 	};
 
 	poweroff: poweroff {
